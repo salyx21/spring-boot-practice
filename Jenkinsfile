@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         ENV_DOCKER = credentials('dockerhub')
-        DOCKERIMAGE = "Springboot"
+        DOCKERIMAGE = "Springboot/springboot"
         EKS_CLUSTER_NAME = "cluster"
     }
     stages {
@@ -23,20 +23,23 @@ pipeline {
         //         sh 'echo scanning!'
         //     }
         // }
-        stage('docker build') {
-            steps {
-                sh 'echo docker build'
-            }
-        }
-        stage('docker push') {
-            steps {
-                sh 'echo docker push!'
-                }
-            }
-        stage('Deploy App') {
-            steps {
-                sh 'echo deploy to kubernetes'               
-            }
-        }
+        // stage('docker build') {
+        //     steps {
+        //         // git 'https://github.com/salyx21/spring-boot-practice.git'
+
+        //         sh 'echo docker build'
+        //     }
+        // }
+        // stage('docker push') {
+        //     steps {
+        //         // sh 'docker push salyx21/springboot:${env.BUILD_NUMBER}'
+        //         sh 'echo docker push!'
+        //         }
+        //     }
+        // stage('Deploy App') {
+        //     steps {
+        //         sh 'echo deploy to kubernetes'               
+        //     }
+        // }
     }
 }
